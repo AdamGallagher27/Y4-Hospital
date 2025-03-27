@@ -4,35 +4,46 @@ const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  // const register = async () => {
-  //   try {
-  //     const response = await fetch('/api/userAuth', {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
-  //       },
+  const [error, setError] = useState(null)
 
-  //     })
+  const register = async (body) => {
+    try {
+      const response = await fetch('/api/userAuth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+        },
+        body: JSON.stringify(body)
+      })
 
-  //     const responseData = await response.json()
-  //     return responseData.body
-  //   }
-  //   catch (error) {
-  //     console.error('Error getting Todos', error)
-  //   }
-  // }
+      const responseData = await response.json()
+      return responseData
+    }
+    catch (error) {
+      console.error('Error registering', error)
+    }
+  }
 
   const handleRegister = async (e) => {
     e.preventDefault()
-    console.log('Logged in with:', email, password)
 
-    console.log(register)
+    const body = {email, password}
+    const response = await register(body)
+
+    if(response.ok) {
+      console.log('redirect to home page')
+      setError(null)
+    }
+    else if(!response.ok) {
+      setError(response.message)
+    }
   }
 
   return (
     <>
       <h2 className='text-2xl font-bold text-center'>Register</h2>
+      <p className='text-red-700'>{error}</p>
       <form onSubmit={handleRegister} className='space-y-4'>
         <div>
           <label htmlFor='email' className='block text-sm font-medium text-gray-700'>Email</label>
