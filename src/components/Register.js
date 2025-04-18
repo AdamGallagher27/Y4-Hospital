@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { saveToken } from '../utils'
 
 const Register = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -32,7 +35,8 @@ const Register = () => {
     const response = await register(body)
 
     if(response.ok) {
-      console.log('redirect to home page')
+      navigate('/home')
+      saveToken(response.token)
       setError(null)
     }
     else if(!response.ok) {

@@ -13,7 +13,7 @@ const Auth = () => {
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
       <div className='w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg'>
         {isRegistering ? <Register /> : <Login />}
-        <button className='underline' onClick={handleButtonPress}>{isRegistering ? 'Register' : 'Login'}</button>
+        <button className='underline' onClick={handleButtonPress}>{isRegistering ? 'Login' : 'Register'}</button>
       </div>
     </div>
   )
