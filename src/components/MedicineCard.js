@@ -13,7 +13,7 @@ const MedicineCard = ({ prescription }) => {
   } = prescription
 
   return (
-    <div className='card border w-64'>
+    <div className='card border bg-zinc-50 border-zinc-200 w-64'>
       <div className='card-body'>
       <h2 className='card-title'>{name}</h2>
       <div className='space-y-2 text-gray-800 text-sm'>
