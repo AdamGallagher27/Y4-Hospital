@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const getAbout = async () => {
   try {
-    const response = await fetch('/api/collections/about-007124', {
+    const response = await fetch('/api/collections/about-772513', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

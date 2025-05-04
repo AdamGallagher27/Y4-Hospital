@@ -7,7 +7,7 @@ import StaffListItem from '../components/StaffListItem'
 
 const getAllMedicine = async () => {
   try {
-    const response = await fetch('/api/collections/prescription-603291', {
+    const response = await fetch('/api/collections/prescription-803613', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const getAllMedicine = async () => {
 
 const getRichTexts = async () => {
   try {
-    const response = await fetch('/api/collections/homepage-569000/6a3d516a-3672-4e93-a991-0143e9baf9df', {
+    const response = await fetch('/api/collections/homepage-988430/e62ce740-fed9-44fa-8172-0776c9b876a7', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const getRichTexts = async () => {
 
 const getStaff = async () => {
   try {
-    const response = await fetch('/api/collections/staff-681215', {
+    const response = await fetch('/api/collections/staff-573291', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,6 @@ const getFeatureFlags = async () => {
 
     if (responseData.ok) {
       const cleanedSingles = Object.fromEntries(responseData.singles.map(({ id, value }) => [id, value]))
-
       return cleanedSingles
     }
   }
